@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    Posts
+{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        <h1>{{ post.title }}</h1>
+        <div class="card mb-5">
+            <div class="card-header">
+              Featured
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text"> {{post.body | truncatewords:15 }}</p>
+              <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read</a>
+            </div>
+          </div>
+        <!-- <div>{{ post.body }}</div> -->
+    {% endfor %}
+{% endblock %}
