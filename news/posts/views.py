@@ -9,6 +9,7 @@ from .utils import ObjectCreateMixin, ObjectUpdateMixin, ObjectDeleteMixin
 
 def posts_list_view(request):
     if request.method == 'GET':
+        print(request.user.username)
         posts = Post.objects.all()
         return render(request, 'posts/index.html', context={'posts': posts})
     elif request.method == 'POST':
