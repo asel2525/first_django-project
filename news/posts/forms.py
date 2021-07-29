@@ -19,5 +19,5 @@ class SearchForm(forms.Form):
     search_param = forms.CharField(widget=forms.TextInput(attrs={'class':"form-control me-2", 'type':"search", 'placeholder':"Search", 'aria-label':"Search"}))
 
 def add_search_form(request):
-    search_form = SearchForm()
-    return {'search_form': search_form}
+    # search_form = SearchForm()
+    return {'search_form': SearchForm()}
