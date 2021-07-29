@@ -7,9 +7,10 @@
 {% block content %}
 <h1>{{ post.title }}</h1>
     <div>{{ post.body }}</div>
-    <a href="{% url 'post_update_url' id=post.id %}">Редактировать</a>
-    <a href="{% url 'post_delete_url' id=post.id %}">Удалить</a>
-
+    {%  if request.user.is_authenticated and not request.user.role == 'ordinary' %}
+    <a href="{% url 'post_update_url' id=post.id %}"class="btn btn-primary">Редактировать</a>
+    <a href="{% url 'post_delete_url' id=post.id %}"class="btn btn-danger">Удалить</a>
+    {% endif %}
 {% for comment in comments %}  
   <div class="comment">  
     <p class="info">  
