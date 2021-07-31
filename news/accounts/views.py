@@ -35,7 +35,7 @@ class RegistrationView(View):
 
     def get(self, request):
         registration_form = RegistrationForm()
-        return render(request, 'accounts/register.html', context={'registration_form': registration_form})
+        return render(request, 'accounts/registration.html', context={'registration_form': registration_form})
 
     def post(self, request):
 
@@ -48,11 +48,12 @@ class RegistrationView(View):
                 user = User.objects.create_user(username=username, password=password)
                 login(request, user)
                 return redirect(reverse('posts_list_url'))
-        return render(request, 'accounts/register.html', context={'registration_form': bound_form})
+        return render(request, 'accounts/registration.html', context={'registration_form': bound_form})
 
 
 def logout_view(request):
     logout(request)
-    return redirect(reverse('posts_list_url'))
+    return redirect(reverse('login_url'))
+
     
 

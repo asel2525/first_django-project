@@ -4,6 +4,9 @@
 {% endblock %}
 
 {% block content %}
+    {% if posts.count == 0 %}
+      <a href="{% url 'post_create_url' %}" class='btn btn-success'>Создать пост</a>
+    {% endif %}
     {% for post in posts %}
         <h1>{{ post.title }}</h1>
         <div class="card mb-5">
