@@ -22,3 +22,7 @@ class Post(models.Model):
     def get_delete_url(self):
         return reverse('post_delete_url', kwargs={'id': self.id})
 
+    class Meta:
+        # verbose_name = 'Пост'
+        # ordering_name_plural = 'Посты'
+        ordering = ['-id', ]
